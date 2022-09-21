@@ -1,6 +1,6 @@
 <form class="row g-3 needs-validation" novalidate [formGroup]="form">
   <div class="col-md-12">
-    <label for="nome" class="form-label">Nome do Curso</label>
+    <label for="nome" class="form-label">Nome</label>
     <input
       type="text"
       class="form-control"
@@ -14,21 +14,23 @@
       class="invalid-feedback"
       *ngIf="hasError('nome') && hasError('nome')!['required']"
     >
-      Por favor informe o nome para o curso.
+      Por favor informe o nome para cadastro.
     </div>
+    <label for="telefone" class="form-label">Telefone</label>
+    <input
+      type="text"
+      class="form-control"
+      id="telefone"
+      required
+      formControlName="telefone"
+      [ngClass]="{ 'is-invalid': submitted && hasError('telefone') }"
+    />
+    <div class="valid-feedback">Looks good!</div>
     <div
       class="invalid-feedback"
-      *ngIf="hasError('nome') && hasError('nome')!['minlength']"
+      *ngIf="hasError('telefone') && hasError('telefone')!['required']"
     >
-      Nome precisa ter no mínimo
-      {{ hasError("nome")!["minlength"].requiredLength }} caracteres.
-    </div>
-    <div
-      class="invalid-feedback"
-      *ngIf="hasError('nome') && hasError('nome')!['maxlength']"
-    >
-      Nome precisa ter no máximo
-      {{ hasError("nome")!["maxlength"].requiredLength }} caracteres.
+      Por favor informe o Número do telefone para cadastro.
     </div>
   </div>
   <div>

@@ -24,7 +24,7 @@ export class CursosFormComponent implements OnInit {
     private _location: Location
   ) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
 
     const curso = this.route.snapshot.data['curso'];
 
@@ -33,13 +33,17 @@ export class CursosFormComponent implements OnInit {
       nome: [
         curso.nome,
         [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20),
+          Validators.required
         ],
       ],
+      telefone: [
+        curso.telefone,
+        [
+          Validators.required
+        ],
+      ]
     });
-  } 
+  }
   onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
@@ -69,7 +73,7 @@ export class CursosFormComponent implements OnInit {
   }
 
   hasError(field: string) {
-    // return this.form.get(field)!.errors
-    return this.form.controls['nome'].errors;
+    return this.form.get(field)!.errors
+    // return this.form.controls[field].errors;
   }
 }

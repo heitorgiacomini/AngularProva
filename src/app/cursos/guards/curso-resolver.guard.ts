@@ -18,11 +18,12 @@ export class CursoResolverGuard implements Resolve<Curso> {
     if(route.params && route.params['id']){
       return this._cursosService.GetById(route.params['id']);
     }
-    
+
     return of({
       id: null,
-      nome: null
+      nome: null,
+      telefone: null
     });
   }
-   
+
 }
